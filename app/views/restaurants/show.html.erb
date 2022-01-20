@@ -1,0 +1,18 @@
+
+
+<h5> <%= "Name: #{@restaurant.name} | Address:#{@restaurant.address} | Phone: #{@restaurant.phone_number} | Category: #{@restaurant.category.capitalize}" %> </h5>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+    <p>Rating: <%= review.rating %></p>
+    <p>Content: <%= review.content %></p>
+    <%= link_to "Delete review", review_path(review), method: :delete%>
+    </li>
+  <% end %>
+</ul>
+
+
+
+
+<%= link_to "Add review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+<%= link_to "Back to main", restaurants_path, class: 'btn btn-primary' %>

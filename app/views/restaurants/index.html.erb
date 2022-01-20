@@ -1,0 +1,11 @@
+<ul>
+    <% @restaurants.each do |restaurant| %>
+  <li>
+    <p><%= "Name: #{restaurant.name} | Address:#{restaurant.address} | Phone: #{restaurant.phone_number} | Category: #{restaurant.category.capitalize}" %> </p>
+    <%= link_to "Go to", restaurant_path(restaurant) %>
+    <%= link_to "Delete", restaurant_path(restaurant), method: :delete %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add restaurant", new_restaurant_path, class: 'btn btn-primary' %>
